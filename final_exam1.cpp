@@ -13,31 +13,30 @@ using namespace std;
 
 int main()
 {
-    double  YearlyInt = -1, present_value = -1, Payment = -1, AmountPaid = -1, MonthlyInt = -1;
-
-    int NumPayments;
+double  YearlyInt = -1, present_value = -1, Payment = -1, AmountPaid = -1, MonthlyInt = -1;
+int NumPayments;
 //user inputs for variables calculating PMT
 
     cout << "Enter the loan amount (present_value) --> ";
     cin >> present_value;
-			while (present_value <= 0) {
-     cout << "Enter valid  loan amount (greater than 0) : \n";
-     cin >> present_value;
+		while (present_value <= 0) {
+    cout << "Enter valid  loan amount (greater than 0) : \n";
+    cin >> present_value;
 };
 				
 //here I did not put upper bound, due to the rare but possibility of really high amounts of interest
     cout << "Enter the MONTHLY interest rate as a positive decimal number (e.g. 3.25% as .0325) --> ";
     cin >> MonthlyInt;
     	while (MonthlyInt <= 0) {
-     cout << "Enter valid MONTHLY interest rate (greater than 0) : \n";
-     cin >> MonthlyInt;
+    cout << "Enter valid MONTHLY interest rate (greater than 0) : \n";
+    cin >> MonthlyInt;
 };
 
     cout << "Enter number of payments --> ";
     cin >> NumPayments;
     	while (NumPayments <= 0) {
-     cout << "Enter valid payment plan (greater than 0) : \n";
-     cin >> NumPayments;
+    cout << "Enter valid payment plan (greater than 0) : \n";
+    cin >> NumPayments;
 };
 
     cout << "present_value: $"  << setprecision(2) << fixed << present_value << endl;
@@ -49,41 +48,40 @@ int main()
     //cout << "MonthlyInt: " << MonthlyInt*100 << "%" << endl;
 
     Payment = MonthlyInt * pow (( 1 + MonthlyInt ), NumPayments) /  (pow(( 1 + MonthlyInt), NumPayments) -1)  * present_value;
-    cout << "Monthly Payment:  $"  << setprecision(2) << Payment << endl;
+    	cout << "Monthly Payment:  $"  << setprecision(2) << Payment << endl;
 
     AmountPaid = Payment * NumPayments;
-    cout << "Amount Paid Back: $" << AmountPaid << endl;
-    cout << "Interest Paid:  $" << (AmountPaid - present_value) << endl;
+    	cout << "Amount Paid Back: $" << AmountPaid << endl;
+    	cout << "Interest Paid:  $" << (AmountPaid - present_value) << endl;
 
 
     cout << "Program Over" << endl << endl << endl << endl;
-
     cout << "Press Enter to end -->" << endl;
     
 //calculating present value of the loan
    
-	double PMT_value= -1,present_value2 = -1;
+double PMT_value= -1,present_value2 = -1;
 
 
     cout << "Enter the installment amount (PMT_value) --> ";
     cin >> PMT_value;
     	while (PMT_value <= 0) {
-     cout << "Enter valid installment amount (greater than 0) : \n";
-     cin >> PMT_value;
+    cout << "Enter valid installment amount (greater than 0) : \n";
+    cin >> PMT_value;
 };
 
     cout << "Enter the MONTHLY interest rate as a decimal number (e.g. 3.25% as .0325) --> ";
     cin >> MonthlyInt;
     	while (MonthlyInt <= 0) {
-     cout << "Enter valid MONTHLY interest amount (greater than 0) : \n";
-     cin >> MonthlyInt;
+    cout << "Enter valid MONTHLY interest amount (greater than 0) : \n";
+    cin >> MonthlyInt;
 };
 
     cout << "Enter number of payments --> ";
     cin >> NumPayments;
     	while (NumPayments <= 0) {
-     cout << "Enter valid payment plan (greater than 0) : \n";
-     cin >> NumPayments;
+    cout << "Enter valid payment plan (greater than 0) : \n";
+    cin >> NumPayments;
 };
 
     cout << "PMT_value: $"  << setprecision(2) << fixed << PMT_value << endl;
@@ -93,40 +91,39 @@ int main()
 
 
     present_value2= PMT_value/(MonthlyInt * (pow (( 1 + MonthlyInt ), NumPayments) /  (pow(( 1 + MonthlyInt), NumPayments) -1)));
-    cout << "present_value:  $"  << setprecision(2) << present_value2 << endl;
+    	cout << "present_value:  $"  << setprecision(2) << present_value2 << endl;
 
     AmountPaid = PMT_value * NumPayments;
-    cout << "Amount Paid Back: $" << AmountPaid << endl;
-    cout << "Interest Paid:  $" << (AmountPaid - present_value2) << endl;
+    	cout << "Amount Paid Back: $" << AmountPaid << endl;
+    	cout << "Interest Paid:  $" << (AmountPaid - present_value2) << endl;
 
 
     cout << "Program Over" << endl << endl << endl << endl;
-
     cout << "Press Enter to end -->" << endl;
     
 //calculating the number of payments
 
-	double NumPayments2=-1, present_value3 = -1;
+double NumPayments2=-1, present_value3 = -1;
 	
  	cout << "Enter the loan amount (present_value3) --> ";
     cin >> present_value3;
     	while (present_value3 <= 0) {
-     cout << "Enter valid loan amount (greater than 0) : \n";
-     cin >> present_value3;
+    cout << "Enter valid loan amount (greater than 0) : \n";
+    cin >> present_value3;
 };
 	
 	cout << "Enter the installment amount (PMT_value) --> ";
     cin >> PMT_value;
     	while (PMT_value <= 0) {
-     cout << "Enter valid installment amount (greater than 0) : \n";
-     cin >> PMT_value;
+    cout << "Enter valid installment amount (greater than 0) : \n";
+    cin >> PMT_value;
 };
 
     cout << "Enter the MONTHLY interest rate as a decimal number (e.g. 3.25% as .0325) --> ";
     cin >> MonthlyInt;
     	while (MonthlyInt <= 0) {
-     cout << "Enter valid MONTHLY interest rate amount (greater than 0) : \n";
-     cin >> MonthlyInt;
+    cout << "Enter valid MONTHLY interest rate amount (greater than 0) : \n";
+    cin >> MonthlyInt;
 };
 
     
@@ -139,15 +136,14 @@ int main()
 //cout << "MonthlyInt: " << MonthlyInt*100 << "%" << endl;
 
     NumPayments2= (log(PMT_value)-log(PMT_value-present_value3*MonthlyInt))/log(1+MonthlyInt);
-    cout << "NumPayments:"  << setprecision(2) << NumPayments2 << endl;
+    	cout << "NumPayments:"  << setprecision(2) << NumPayments2 << endl;
 
     AmountPaid = PMT_value * NumPayments2;
-    cout << "Amount Paid Back: $" << AmountPaid << endl;
-    cout << "Interest Paid:  $" << (AmountPaid - present_value3) << endl;
+    	cout << "Amount Paid Back: $" << AmountPaid << endl;
+    	cout << "Interest Paid:  $" << (AmountPaid - present_value3) << endl;
 
 
     cout << "Program Over" << endl << endl << endl << endl;
-
     cout << "Press Enter to end -->" << endl;
 	  
 //Finding Interest rate	
@@ -156,12 +152,13 @@ int main()
 
 
 
-	double PMTvalue,MonthlyInt0,MonthlyInt1,MonthlyInt2,tolerance,maxIterations,count,FX;
+double PMTvalue,MonthlyInt0,MonthlyInt1,MonthlyInt2,tolerance,maxIterations,count,FX;
+	
 	cout << "Enter the loan amount (present_value3) --> ";
     cin >> present_value3;
     	while (present_value3 <= 0) {
-     cout << "Enter valid loan amount (greater than 0) : \n";
-     cin >> present_value3;
+    cout << "Enter valid loan amount (greater than 0) : \n";
+    cin >> present_value3;
 };
 	
 	cout << "Enter the installment amount (PMTvalue) --> ";
@@ -178,15 +175,16 @@ int main()
      cin >> NumPayments;
 };
 
-count = 0;
-MonthlyInt0 = 0.02;
-MonthlyInt1 = 0.05;
-tolerance = .000001;
-maxIterations = 100;
-FX=(pow((1+MonthlyInt0),NumPayments)*(PMTvalue-MonthlyInt0*present_value3)-PMTvalue);
+//parameter declerations
+	count = 0;
+	MonthlyInt0 = 0.02;
+	MonthlyInt1 = 0.05;
+	tolerance = .000001;
+	maxIterations = 100;
+	FX=(pow((1+MonthlyInt0),NumPayments)*(PMTvalue-MonthlyInt0*present_value3)-PMTvalue);
 	
 //while loop for iterations of secant process	
-	while(fabs(FX0-FX1)>tolerance && count < maxIterations && fabs(FX)>tolerance)
+while(fabs(FX0-FX1)>tolerance && count < maxIterations && fabs(FX)>tolerance)
 {
     MonthlyInt2=MonthlyInt1-(FX1*((MonthlyInt0-MonthlyInt1)/(FX0-FX1)));
          FX = (pow((1+MonthlyInt2),NumPayments)*(PMTvalue-MonthlyInt2*present_value3)-PMTvalue);
@@ -199,12 +197,12 @@ FX=(pow((1+MonthlyInt0),NumPayments)*(PMTvalue-MonthlyInt0*present_value3)-PMTva
 
 //Display the zero, when our process reaches zero, it is reported 
     if (fabs(FX)<tolerance)      
-    cout << "The zero is at MonthlyInt = " << setprecision(4) << MonthlyInt2;
+    	cout << "The zero is at MonthlyInt = " << setprecision(4) << MonthlyInt2;
 //Or Report that no zero was found
     else
-    cout << "No zeroes were found within the given function.";
+    	cout << "No zeroes were found within the given function.";
 
-    return 0;
+return 0;
     }
 
 
